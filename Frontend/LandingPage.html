@@ -1,0 +1,2233 @@
+<!DOCTYPE html><html><head><base href="/">
+<title>DocuDemande - Simplifiez vos démarches administratives</title>
+<style>
+:root {
+  --primary: #006233;  /* Moroccan green - made lighter */
+  --secondary: #c1272d; /* Moroccan red - made softer */
+  --light: #f8f9fa;
+  --dark: #2d3748;
+  --gray: #718096;
+  --border: #e2e8f0;
+  --font-heading: 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-arabic: 'Amiri', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+.header {
+  background: linear-gradient(to right, rgba(0,98,51,0.1), rgba(193,39,45,0.1));
+  padding: 1.5rem 2rem;
+  border-bottom: 2px solid var(--primary);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.morocco-flag {
+  width: 32px;
+  height: 24px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  transition: all 0.2s;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  background: rgba(0,98,51,0.1);
+}
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+}
+
+.lang-btn {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: var(--dark);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.lang-btn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+  padding: 8rem 2rem 6rem;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero h2 {
+  font-family: var(--font-arabic);
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-top: 1rem;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--gray);
+  margin-top: 0.5rem;
+}
+
+.service-section {
+  padding: 4rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.info-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.info-card ul {
+  list-style: disc inside;
+  margin-top: 1rem;
+}
+
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.document-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.document-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.document-card:hover::before {
+  opacity: 1;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  fill: var(--primary);
+}
+
+.btn {
+  background: var(--secondary);
+  color: white;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #a01f24;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.features {
+  background: white;
+  padding: 4rem 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.info-banner {
+  background: #EBF8FF;
+  border-left: 4px solid var(--primary);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.document-card .requirements {
+  background: #F7FAFC;
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.document-card .requirements h4 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.document-card .requirements ul {
+  list-style-position: inside;
+  margin-left: 0.5rem;
+}
+
+.document-card .timing {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.service-cost {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.featured-services {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 4rem 2rem;
+  margin: 2rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.highlight-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .documents-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+
+.vision-section {
+  background: linear-gradient(to right, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+}
+
+.vision-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.vision-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-section {
+  background: linear-gradient(135deg, rgba(0,98,51,0.97), rgba(193,39,45,0.97)),
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M0 0h100v100H0z'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-size='8' fill='white'%3E010101%3C/text%3E%3C/g%3E%3C/svg%3E"),
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cdefs%3E%3CradialGradient id='circles'%3E%3Cstop offset='0%25' stop-color='white' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='white' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='400' cy='400' r='300' fill='none' stroke='url(%23circles)' stroke-width='1'/%3E%3Ccircle cx='400' cy='400' r='200' fill='none' stroke='url(%23circles)' stroke-width='1'/%3E%3Ccircle cx='400' cy='400' r='100' fill='none' stroke='url(%23circles)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: cover, 100px 100px, cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(45deg, 
+      rgba(255,255,255,0.03) 0px, 
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px, 
+      transparent 10px
+    );
+  pointer-events: none;
+}
+
+/* Add floating digital elements */
+.info-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 10%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 10%);
+  animation: floatDigital 20s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes floatDigital {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Enhance info cards for better contrast */
+.info-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Add digital particles styles */
+.digital-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.digital-particle {
+  position: absolute;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Improve scrolling performance */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+.digital-platform-section {
+  transform: translateZ(0);
+  will-change: transform;
+}
+</style>
+</head>
+<body>
+
+<header class="header" style="background: linear-gradient(135deg, rgba(0,98,51,0.1) 0%, rgba(193,39,45,0.1) 100%); padding: 1.5rem 2rem; border-bottom: 3px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); transition: all 0.3s ease;">
+  <nav class="nav" style="position: relative;">
+    <div class="logo-container" style="display: flex; align-items: center; gap: 1.5rem;">
+      <div class="flag-wrapper" style="position: relative; display: flex; align-items: center;">
+        <svg class="morocco-flag" viewBox="0 0 640 480" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));">
+          <path fill="#c1272d" d="M640 0H0v480h640z"></path>
+          <path fill="none" stroke="#006233" stroke-width="11.7" d="M320 179.4L284.4 289l93.2-67.6H262.4l93.2 67.6z"></path>
+        </svg>
+        <div class="pulse-effect" style="position: absolute; width: 100%; height: 100%; border-radius: 50%; background: rgba(0,98,51,0.1); animation: pulse 2s infinite;"></div>
+      </div>
+      <a href="https://docudemande.fr" class="logo" style="font-size: 1.5rem; font-weight: 600; text-decoration: none; position: relative; display: flex; flex-direction: column; align-items: flex-start;">
+  <div style="position: relative; display: inline-block;">
+    <span style="background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">DocuDemande</span>
+    <span style="font-size: 0.7em; color: var(--gray); position: absolute; bottom: -1em; left: 50%; transform: translateX(-50%); white-space: nowrap; opacity: 0.8;">وثائق الحالة المدنية</span>
+  </div>
+  <div class="logo-highlight" style="position: absolute; width: 100%; height: 2px; bottom: -4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left;"></div>
+</a>
+    </div>
+    <div class="nav-links" style="display: flex; align-items: center; gap: 2rem;">
+      <div class="nav-group" style="display: flex; gap: 1.5rem;">
+        <a href="https://docudemande.fr/services" class="nav-link" style="position: relative; text-decoration: none; color: var(--dark); padding: 0.5rem 1rem; transition: all 0.3s ease; border-radius: 4px;">
+          <span>Nos Services</span>
+          <span class="hover-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s ease;"></span>
+        </a>
+        <a href="https://docudemande.fr/aide" class="nav-link" style="position: relative; text-decoration: none; color: var(--dark); padding: 0.5rem 1rem; transition: all 0.3s ease; border-radius: 4px;">
+          <span>Aide</span>
+          <span class="hover-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s ease;"></span>
+        </a>
+      </div>
+      <div class="lang-switcher" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: rgba(0,0,0,0.03); border-radius: 8px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);">
+        <a href="#" class="lang-btn" style="padding: 0.4rem 0.8rem; border-radius: 6px; font-weight: 500; transition: all 0.3s ease; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">FR</a>
+        <a href="#" class="lang-btn" style="padding: 0.4rem 0.8rem; border-radius: 6px; transition: all 0.3s ease;">العربية</a>
+        <a href="#" class="lang-btn" style="padding: 0.4rem 0.8rem; border-radius: 6px; transition: all 0.3s ease;">ⵜⴰⵎⴰⵣⵉⵖⵜ</a>
+      </div>
+      <a href="https://docudemande.fr/connexion" class="btn" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+        <span style="position: relative; z-index: 1;">Connexion</span>
+        <div class="btn-highlight" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, var(--primary), var(--secondary)); opacity: 0; transition: opacity 0.3s ease;"></div>
+      </a>
+    </div>
+  </nav>
+  <style>
+    .header:hover {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .nav-link:hover {
+      background: rgba(0,98,51,0.05);
+      transform: translateY(-1px);
+    }
+    .nav-link:hover .hover-line {
+      width: 100%;
+    }
+    .lang-btn:hover {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transform: translateY(-1px);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .btn:hover .btn-highlight {
+      opacity: 0.2;
+    }
+    .logo:hover .logo-highlight {
+      transform: scaleX(1);
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.1); opacity: 0.4; }
+      100% { transform: scale(1); opacity: 0.6; }
+    }
+    @media (max-width: 768px) {
+      .header {
+        padding: 1rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      .lang-switcher {
+        display: none;
+      }
+    }
+  </style>
+</header>
+
+<div class="breadcrumb" style="background: #f8f9fa; padding: 1rem 0; border-bottom: 1px solid var(--border); margin-bottom: 1rem;">
+  <div class="container">
+    <ul style="list-style: none; display: flex; gap: 0.5rem; font-size: 0.9rem; color: var(--gray);">
+      <li><a href="https://docudemande.fr" style="color: var(--primary); text-decoration: none;">Accueil</a> /</li>
+      <li>Services d'État Civil</li>
+    </ul>
+  </div>
+</div>
+
+<section class="hero" style="background: linear-gradient(135deg, rgba(0,98,51,0.1), rgba(193,39,45,0.1)); padding: 8rem 2rem 6rem; position: relative; overflow: hidden;">
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; pointer-events: none;">
+    <!-- Enhanced Moroccan pattern background -->
+    <svg viewBox="0 0 1000 1000" style="position: absolute; width: 100%; height: 100%;">
+      <defs>
+        <pattern id="moroccan-pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+          <!-- Traditional Moroccan Zellige pattern -->
+          <path d="M25,0 L50,25 L25,50 L0,25 Z" fill="none" stroke="#006233" stroke-width="1"></path>
+          <circle cx="25" cy="25" r="10" fill="#c1272d"></circle>
+          <!-- Moroccan star pattern -->
+          <path d="M25,18l2.5,7.5h8l-6.5,4.7l2.5,7.5l-6.5-4.7l-6.5,4.7l2.5-7.5l-6.5-4.7h8z" fill="#006233"></path>
+          <!-- Additional decorative elements -->
+          <path d="M0,0 L12.5,12.5 M37.5,37.5 L50,50" stroke="#006233" stroke-width="0.5"></path>
+          <path d="M50,0 L37.5,12.5 M12.5,37.5 L0,50" stroke="#c1272d" stroke-width="0.5"></path>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#moroccan-pattern)"></rect>
+    </svg>
+  </div>
+  <!-- Main content with enhanced styling -->
+  <div class="hero-content" style="position: relative; z-index: 1; background: rgba(255,255,255,0.95); padding: 3.5rem; border-radius: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(0,98,51,0.1);">
+    <!-- Modern Geometric Moroccan Pattern Overlay -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.03; pointer-events: none; background-image: 
+        linear-gradient(30deg, var(--primary) 12%, transparent 12.5%, transparent 87%, var(--primary) 87.5%, var(--primary)),
+        linear-gradient(150deg, var(--primary) 12%, transparent 12.5%, transparent 87%, var(--primary) 87.5%, var(--primary)),
+        linear-gradient(30deg, var(--primary) 12%, transparent 12.5%, transparent 87%, var(--primary) 87.5%, var(--primary)),
+        linear-gradient(150deg, var(--primary) 12%, transparent 12.5%, transparent 87%, var(--primary) 87.5%, var(--primary)),
+        linear-gradient(60deg, var(--secondary) 25%, transparent 25.5%, transparent 75%, var(--secondary) 75%, var(--secondary)),
+        linear-gradient(60deg, var(--secondary) 25%, transparent 25.5%, transparent 75%, var(--secondary) 75%, var(--secondary));
+        background-size: 80px 140px;
+        background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+        z-index: -1;">
+    </div>
+    
+    <!-- Subtle Border Gradient -->
+    <div style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(135deg, var(--primary), var(--secondary)); opacity: 0.1; border-radius: 26px; z-index: -2;"></div>
+
+    <!-- Content with enhanced typography -->
+    <div style="position: relative;">
+        <h1 class="moroccan-title" style="font-size: 4rem; margin-bottom: 2rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.02em;">
+            Service officiel d'État Civil en ligne
+        </h1>
+
+        <h2 class="arabic-text" style="font-size: 2.5rem; color: var(--primary); margin: 2rem 0; text-align: center;">
+            خدمة الحالة المدنية الرسمية عبر الإنترنت
+            <div style="font-size: 1.8rem; color: var(--secondary); margin-top: 1rem; font-weight: 300;">
+                المملكة المغربية
+            </div>
+        </h2>
+
+        <!-- Modern Decorative Separator -->
+        <div style="height: 2px; width: 100px; margin: 2rem auto; background: linear-gradient(to right, transparent, var(--primary), var(--secondary), transparent);"></div>
+
+        <div style="display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; font-size: 1.3rem; background: linear-gradient(135deg, rgba(0,98,51,0.03), rgba(193,39,45,0.03)); padding: 2rem; border-radius: 15px; backdrop-filter: blur(5px);">
+            <span class="arabic-text">في خدمة المواطنين</span>
+            <span style="color: var(--primary); font-size: 1.5rem;">✧</span>
+            <span style="font-family: 'Scheherazade New', serif;">Au service des citoyens</span>
+            <span style="color: var(--primary); font-size: 1.5rem;">✧</span>
+            <span style="font-family: 'Tifinagh', 'Scheherazade New', serif;">ⵉⵎⴰⵥⵉⵖⵜ</span>
+        </div>
+
+        <p style="max-width: 800px; margin: 2rem auto; line-height: 2; color: var(--dark); font-size: 1.3rem; text-align: center; font-family: 'Scheherazade New', serif; padding: 2rem; border-radius: 15px; background: linear-gradient(135deg, rgba(0,98,51,0.02), rgba(193,39,45,0.02));">
+            Plateforme officielle du Royaume du Maroc pour vos démarches administratives en ligne,
+            alliant la richesse de notre patrimoine aux innovations numériques modernes.
+            <span class="arabic-text" style="display: block; font-size: 1.4rem; margin-top: 1.5rem; color: var(--primary); font-weight: 300;">
+                تحت رعاية صاحب الجلالة الملك محمد السادس نصره الله
+            </span>
+        </p>
+    </div>
+</div>
+  <!-- Decorative bottom border -->
+  <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(135deg, var(--primary), var(--secondary));">
+    <div style="position: absolute; top: -20px; left: 0; width: 100%; height: 20px; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.05));"></div>
+  </div>
+</section>
+
+<section class="digital-platform-section" style="
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg, rgba(0,98,51,0.97), rgba(193,39,45,0.97)),
+    url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1440 320\'%3E%3Cpath fill=\'%23ffffff\' fill-opacity=\'0.1\' d=\'M0,64L48,96C96,128,192,192,288,192C384,192,480,128,576,122.7C672,117,768,171,864,176C960,181,1056,139,1152,117.3C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z\'%3E%3C/path%3E%3C/svg%3E');
+  background-size: cover, auto, cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  border-radius: 0 0 50px 50px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+  
+  <!-- Animated geometric background -->
+  <div class="geometric-background" style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    pointer-events: none;
+    background-image: 
+      linear-gradient(30deg, var(--primary) 12%, transparent 12.5%, transparent 87%, var(--primary) 87.5%, var(--primary)),
+      linear-gradient(150deg, var(--primary) 12%, transparent 12.5%, transparent 87%, var(--primary) 87.5%, var(--primary)),
+      linear-gradient(30deg, var(--primary) 12%, transparent 12.5%, transparent 87%, var(--primary) 87.5%, var(--primary)),
+      linear-gradient(150deg, var(--primary) 12%, transparent 12.5%, transparent 87%, var(--primary) 87.5%, var(--primary));
+    background-size: 80px 140px;
+    animation: slidePattern 60s linear infinite;
+  "></div>
+
+  <!-- Floating particles -->
+  <div class="particles-overlay" style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  ">
+    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <radialGradient id="particle-gradient">
+          <stop offset="0%" stop-color="white" stop-opacity="0.3"></stop>
+          <stop offset="100%" stop-color="white" stop-opacity="0"></stop>
+        </radialGradient>
+      </defs>
+      <!-- Animated particles -->
+      <circle class="particle" cx="20" cy="20" r="1" fill="url(#particle-gradient)">
+        <animate attributeName="cy" values="20;80;20" dur="4s" repeatCount="indefinite"></animate>
+      </circle>
+      <circle class="particle" cx="50" cy="50" r="1" fill="url(#particle-gradient)">
+        <animate attributeName="cy" values="50;10;50" dur="3s" repeatCount="indefinite"></animate>
+      </circle>
+      <circle class="particle" cx="80" cy="30" r="1" fill="url(#particle-gradient)">
+        <animate attributeName="cy" values="30;90;30" dur="5s" repeatCount="indefinite"></animate>
+      </circle>
+    </svg>
+  </div>
+
+  <div class="container" style="
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);">
+    
+    <!-- Enhanced platform description -->
+    <div style="text-align: center; margin-bottom: 4rem;">
+      <h2 style="
+        font-size: 3.2rem;
+        margin-bottom: 2rem;
+        background: linear-gradient(to right, #ffffff, #f0f0f0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        Votre Plateforme de Services Administratifs
+      </h2>
+      <p style="
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        line-height: 1.8;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+        DocuDemande révolutionne l'accès à vos documents administratifs officiels.
+        Une solution moderne, sécurisée et efficace pour tous vos besoins documentaires.
+      </p>
+    </div>
+
+    <!-- Dynamic statistics display -->
+    <div style="
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+      text-align: center;">
+      
+      <div class="stat-card" style="
+        padding: 2rem;
+        background: rgba(255,255,255,0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;">
+        <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">24/7</h3>
+        <p>Disponibilité</p>
+      </div>
+      
+      <div class="stat-card" style="
+        padding: 2rem;
+        background: rgba(255,255,255,0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;">
+        <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">100%</h3>
+        <p>En ligne</p>
+      </div>
+      
+      <div class="stat-card" style="
+        padding: 2rem;
+        background: rgba(255,255,255,0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;">
+        <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">48h</h3>
+        <p>Délai maximum</p>
+      </div>
+    </div>
+
+    <!-- Enhanced CTA button -->
+    <div style="text-align: center; margin-bottom: 4rem;">
+      <a href="https://docudemande.fr/services" style="
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  font-size: 1.4rem;
+  padding: 1.5rem 4rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  min-width: 280px;
+  transform-style: preserve-3d;
+  perspective: 1000px;">
+  <span style="
+    position: relative; 
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transform: translateZ(20px);">
+    <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"></path>
+    </svg>
+    Commencer Maintenant
+  </span>
+  <span style="
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+    font-weight: normal;
+    transform: translateZ(20px);">Service Public Gratuit</span>
+  <div class="btn-shine" style="
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+    transform: translate(-100%, -100%);
+    transition: transform 0.6s ease;"></div>
+  <div class="btn-border" style="
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border-radius: 52px;
+    z-index: 0;
+    opacity: 0;
+    mask: 
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    padding: 1px;
+    transition: all 0.3s ease-in-out;
+    animation: borderRotate 8s linear infinite;
+    background-size: 200% 200%;
+    filter: drop-shadow(0 0 4px rgba(0,98,51,0.1));
+">
+</div>
+  <style>
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+
+    a:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+    
+    a:hover .btn-border {
+      opacity: 1;
+    }
+    
+    a:hover .btn-shine {
+      transform: translate(100%, 100%);
+    }
+    
+    a:active {
+      transform: translateY(-2px) scale(0.98);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</a>
+    </div>
+
+    <!-- Digital Morocco 2030 vision -->
+    <div style="
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 2.5rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);">
+      <h3 style="font-size: 2.2rem; margin-bottom: 1rem;">#DigitalMorocco2030</h3>
+      <p style="
+        margin-bottom: 2rem;
+        font-size: 1.2rem;
+        line-height: 1.8;">
+        Une initiative s'inscrivant dans la vision nationale de transformation
+        numérique du Maroc, facilitant l'accès aux services administratifs pour
+        tous les citoyens.
+      </p>
+    </div>
+  </div>
+
+  <style>
+    @keyframes slidePattern {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    
+    a:hover .btn-shine {
+      transform: translate(100%, 100%);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</section>
+
+<main class="documents-grid">
+  <article class="document-card animate-on-scroll" style="
+  background: linear-gradient(135deg, rgba(255,255,255,1), rgba(248,249,250,1));
+  border: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 16px;
+  padding: 2.8rem;
+  position: relative;
+  overflow: hidden;
+">
+    <div class="card-glow" style="
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(
+        circle at center,
+        rgba(0,98,51,0.03) 0%,
+        rgba(193,39,45,0.03) 50%,
+        transparent 100%
+      );
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    "></div>
+    
+    <svg class="icon" viewBox="0 0 24 24" style="
+      width: 56px;
+      height: 56px;
+      margin-bottom: 1.5rem;
+      fill: var(--primary);
+      filter: drop-shadow(0 2px 4px rgba(0,98,51,0.2));
+      transition: transform 0.3s ease;
+    ">
+      <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"></path>
+    </svg>
+
+    <h3 style="
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    ">
+      Acte de naissance
+      <div class="title-underline" style="
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 40%;
+        height: 2px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        transition: width 0.3s ease;
+      "></div>
+    </h3>
+
+    <p style="
+      line-height: 1.8;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    ">Demandez une copie intégrale ou un extrait de votre acte de naissance.</p>
+
+    <div class="service-cost" style="
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 500;
+      margin: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0,98,51,0.15);
+    ">Service gratuit</div>
+
+    <div class="requirements" style="
+      background: linear-gradient(135deg, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    ">
+      <h4 style="
+        color: var(--primary);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      ">
+        <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M13,9H11V7H13V9M13,17H11V11H13V17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
+        </svg>
+        Documents nécessaires :
+      </h4>
+      <ul style="
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      ">
+        <li style="
+          margin-bottom: 0.8rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        ">
+          <svg style="width: 16px; height: 16px; color: var(--primary);" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path>
+          </svg>
+          Pièce d'identité valide
+        </li>
+        <li style="
+          margin-bottom: 0.8rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        ">
+          <svg style="width: 16px; height: 16px; color: var(--primary);" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path>
+          </svg>
+          Date et lieu de naissance
+        </li>
+        <li style="
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        ">
+          <svg style="width: 16px; height: 16px; color: var(--primary);" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z"></path>
+          </svg>
+          Noms des parents
+        </li>
+      </ul>
+    </div>
+
+    <div class="timing" style="
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--primary);
+      font-size: 1rem;
+      margin: 1.5rem 0;
+      padding: 0.8rem 1.2rem;
+      background: rgba(0,98,51,0.05);
+      border-radius: 8px;
+    ">
+      <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"></path>
+      </svg>
+      Délai : 3-5 jours ouvrés
+    </div>
+
+    <div class="additional-info" style="
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin: 1.5rem 0;
+      padding: 1rem;
+      border-left: 3px solid var(--primary);
+      background: rgba(0,98,51,0.02);
+    ">
+      <p style="margin: 0;">Service assuré par votre mairie</p>
+    </div>
+
+    <a href="https://docudemande.fr/acte-naissance" class="btn" style="
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,98,51,0.2);
+      position: relative;
+      overflow: hidden;
+    ">
+      <span style="position: relative; z-index: 1;">Faire la demande</span>
+      <div class="btn-shine" style="
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+        transform: translate(-100%, -100%);
+        transition: transform 0.6s ease;
+      "></div>
+    </a>
+</article>
+
+  <article class="document-card animate-on-scroll" style="
+  background: linear-gradient(135deg, rgba(255,255,255,1), rgba(248,249,250,1));
+  border: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 16px;
+  padding: 2.8rem;
+  position: relative;
+  overflow: hidden;
+">
+    <div class="card-glow" style="
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(
+        circle at center,
+        rgba(0,98,51,0.03) 0%,
+        rgba(193,39,45,0.03) 50%,
+        transparent 100%
+      );
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    "></div>
+    
+    <svg class="icon" viewBox="0 0 24 24" style="
+      width: 56px;
+      height: 56px;
+      margin-bottom: 1.5rem;
+      fill: var(--primary);
+      filter: drop-shadow(0 2px 4px rgba(0,98,51,0.2));
+      transition: transform 0.3s ease;
+    ">
+      <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"></path>
+    </svg>
+
+    <h3 style="
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    ">
+      Acte de mariage
+      <div class="title-underline" style="
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 40%;
+        height: 2px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        transition: width 0.3s ease;
+      "></div>
+    </h3>
+
+    <p style="
+      line-height: 1.8;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    ">Obtenez votre acte de mariage officiel. Document essentiel pour vos démarches administratives et légales.</p>
+
+    <div class="service-cost" style="
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 500;
+      margin: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0,98,51,0.15);
+    ">Service gratuit</div>
+
+    <div class="requirements" style="
+      background: linear-gradient(135deg, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    ">
+      <h4 style="
+        color: var(--primary);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      ">
+        <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M13,9H11V7H13V9M13,17H11V11H13V17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
+        </svg>
+        Documents nécessaires :
+      </h4>
+      <ul style="
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      ">
+        <li style="
+          margin-bottom: 0.8rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        ">
+          <svg style="width: 16px; height: 16px; color: var(--primary);" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path>
+          </svg>
+          Pièces d'identité des deux conjoints
+        </li>
+        <li style="
+          margin-bottom: 0.8rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        ">
+          <svg style="width: 16px; height: 16px; color: var(--primary);" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path>
+          </svg>
+          Date et lieu du mariage
+        </li>
+        <li style="
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        ">
+          <svg style="width: 16px; height: 16px; color: var(--primary);" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path>
+          </svg>
+          Livret de famille (si disponible)
+        </li>
+      </ul>
+    </div>
+
+    <div class="timing" style="
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--primary);
+      font-size: 1rem;
+      margin: 1.5rem 0;
+      padding: 0.8rem 1.2rem;
+      background: rgba(0,98,51,0.05);
+      border-radius: 8px;
+    ">
+      <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"></path>
+      </svg>
+      Délai : 3-7 jours ouvrés
+    </div>
+
+    <div class="additional-info" style="
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin: 1.5rem 0;
+      padding: 1rem;
+      border-left: 3px solid var(--primary);
+      background: rgba(0,98,51,0.02);
+    ">
+      <p style="margin: 0;">Service officiel assuré par votre mairie conformément à la réglementation en vigueur</p>
+    </div>
+
+    <a href="https://docudemande.fr/acte-mariage" class="btn" style="
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,98,51,0.2);
+      position: relative;
+      overflow: hidden;
+    ">
+      <span style="position: relative; z-index: 1;">Faire la demande</span>
+      <div class="btn-shine" style="
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+        transform: translate(-100%, -100%);
+        transition: transform 0.6s ease;
+      "></div>
+    </a>
+
+    <style>
+      .document-card:hover .card-glow {
+        opacity: 1;
+      }
+      .document-card:hover .title-underline {
+        width: 100%;
+      }
+      .document-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,98,51,0.3);
+      }
+      .btn:hover .btn-shine {
+        transform: translate(100%, 100%);
+      }
+      .requirements:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+    </style>
+</article>
+
+  <article class="document-card animate-on-scroll" style="
+  background: linear-gradient(135deg, rgba(255,255,255,1), rgba(248,249,250,1));
+  border: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 16px;
+  padding: 2.8rem;
+  position: relative;
+  overflow: hidden;
+">
+    <div class="card-glow" style="
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(
+        circle at center,
+        rgba(0,98,51,0.03) 0%,
+        rgba(193,39,45,0.03) 50%,
+        transparent 100%
+      );
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    "></div>
+    
+    <svg class="icon" viewBox="0 0 24 24" style="
+      width: 56px;
+      height: 56px;
+      margin-bottom: 1.5rem;
+      fill: var(--primary);
+      filter: drop-shadow(0 2px 4px rgba(0,98,51,0.2));
+      transition: transform 0.3s ease;
+    ">
+      <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"></path>
+    </svg>
+
+    <h3 style="
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    ">
+      Acte de décès
+      <div class="title-underline" style="
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 40%;
+        height: 2px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        transition: width 0.3s ease;
+      "></div>
+    </h3>
+
+    <p style="
+      line-height: 1.8;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    ">Obtenez une copie officielle d'acte de décès. Document essentiel pour les démarches successorales et administratives post-mortem.</p>
+
+    <div class="service-cost" style="
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 500;
+      margin: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0,98,51,0.15);
+    ">Service gratuit</div>
+
+    <div class="requirements" style="
+      background: linear-gradient(135deg, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    ">
+      <h4 style="
+        color: var(--primary);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      ">
+        <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M13,9H11V7H13V9M13,17H11V11H13V17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
+        </svg>
+        Documents nécessaires :
+      </h4>
+      <ul style="
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      ">
+        <li style="
+          margin-bottom: 0.8rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        ">
+          <svg style="width: 16px; height: 16px; color: var(--primary);" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path>
+          </svg>
+          Informations complètes du défunt (nom, prénom, date et lieu du décès)
+        </li>
+        <li style="
+          margin-bottom: 0.8rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        ">
+          <svg style="width: 16px; height: 16px; color: var(--primary);" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path>
+          </svg>
+          Justificatif d'identité du demandeur
+        </li>
+        <li style="
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        ">
+          <svg style="width: 16px; height: 16px; color: var(--primary);" viewBox="0 0 24 24">
+5Z"&gt;
+        </svg>
+        Document prouvant le lien de parenté (livret de famille, acte de naissance)
+        </li>
+      </ul>
+    </div>
+
+    <div class="timing" style="
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--primary);
+      font-size: 1rem;
+      margin: 1.5rem 0;
+      padding: 0.8rem 1.2rem;
+      background: rgba(0,98,51,0.05);
+      border-radius: 8px;
+    ">
+      <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"></path>
+      </svg>
+      Délai : 5-15 jours ouvrés
+    </div>
+
+    <div class="additional-info" style="
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin: 1.5rem 0;
+      padding: 1rem;
+      border-left: 3px solid var(--primary);
+      background: rgba(0,98,51,0.02);
+    ">
+      <p style="margin: 0;">Service officiel assuré par votre mairie conformément à la législation en vigueur</p>
+      <p style="font-style: italic;">Les actes de décès sont délivrés à toute personne qui en fait la demande</p>
+    </div>
+
+    <a href="https://docudemande.fr/acte-deces" class="btn" style="
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,98,51,0.2);
+      position: relative;
+      overflow: hidden;
+    ">
+      <span style="position: relative; z-index: 1;">Faire la demande</span>
+      <div class="btn-shine" style="
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+        transform: translate(-100%, -100%);
+        transition: transform 0.6s ease;
+      "></div>
+    </a>
+
+    <style>
+      .document-card:hover .card-glow {
+        opacity: 1;
+      }
+      .document-card:hover .title-underline {
+        width: 100%;
+      }
+      .document-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,98,51,0.3);
+      }
+      .btn:hover .btn-shine {
+        transform: translate(100%, 100%);
+      }
+      .requirements:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+    </style>
+</article>
+
+<article class="document-card animate-on-scroll" style="
+  background: linear-gradient(135deg, rgba(255,255,255,1), rgba(248,249,250,1));
+  border: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 16px;
+  padding: 2.8rem;
+  position: relative;
+  overflow: hidden;
+">
+    <div class="card-glow" style="
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(
+        circle at center,
+        rgba(0,98,51,0.03) 0%,
+        rgba(193,39,45,0.03) 50%,
+        transparent 100%
+      );
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    "></div>
+    
+    <svg class="icon" viewBox="0 0 24 24" style="
+      width: 56px;
+      height: 56px;
+      margin-bottom: 1.5rem;
+      fill: var(--primary);
+      filter: drop-shadow(0 2px 4px rgba(0,98,51,0.2));
+      transition: transform 0.3s ease;
+    ">
+      <path d="M20,6C20.58,6 21.05,6.2 21.42,6.59C21.8,7 22,7.45 22,8V19C22,19.55 21.8,20 21.42,20.41C21.05,20.8 20.58,21 20,21H4C3.42,21 2.95,20.8 2.58,20.41C2.2,20 2,19.55 2,19V8C2,7.45 2.2,7 2.58,6.59C2.95,6.2 3.42,6 4,6H8V4C8,3.42 8.2,2.95 8.58,2.58C8.95,2.2 9.42,2 10,2H14C14.58,2 15.05,2.2 15.42,2.58C15.8,2.95 16,3.42 16,4V6H20M4,8V19H20V8H4M14,6V4H10V6H14Z"></path>
+    </svg>
+
+    <h3 style="
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    ">
+      Attestation de travail
+      <div class="title-underline" style="
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 40%;
+        height: 2px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        transition: width 0.3s ease;
+      "></div>
+    </h3>
+
+    <p style="
+      line-height: 1.8;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    ">Obtenez votre attestation de travail officielle simplement et rapidement. Service en ligne disponible 24/7.</p>
+
+    <div class="service-cost" style="
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 500;
+      margin: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0,98,51,0.15);
+    ">Service gratuit</div>
+
+    <div class="requirements" style="
+      background: linear-gradient(135deg, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    ">
+      <h4 style="
+        color: var(--primary);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      ">
+        <svg style="width: 20px; height: 20px;">
+          <path fill="currentColor" d="M13,9H11V7H13V9M13,17H11V11H13V17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path>
+        </svg>
+        Documents nécessaires :
+      </h4>
+      <ul style="
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      ">
+        <li style="margin-bottom: 0.8rem;">• Contrat de travail</li>
+        <li style="margin-bottom: 0.8rem;">• Dernière fiche de paie</li>
+        <li style="margin-bottom: 0.8rem;">• Pièce d'identité valide</li>
+        <li>• Numéro de sécurité sociale</li>
+      </ul>
+    </div>
+
+    <div class="timing" style="
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--primary);
+      font-size: 1rem;
+      margin: 1.5rem 0;
+      padding: 0.8rem 1.2rem;
+      background: rgba(0,98,51,0.05);
+      border-radius: 8px;
+    ">
+      <svg style="width: 24px; height: 24px;">
+        <path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"></path>
+      </svg>
+      Délai : 24-48 heures ouvrées
+    </div>
+
+    <div class="additional-info" style="
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin: 1.5rem 0;
+      padding: 1rem;
+      border-left: 3px solid var(--primary);
+      background: rgba(0,98,51,0.02);
+    ">
+      <p>Service officiel disponible pour tous les salariés. L'attestation est délivrée conformément au Code du travail.</p>
+    </div>
+
+    <a href="https://docudemande.fr/attestation-travail" class="btn" style="
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,98,51,0.2);
+      position: relative;
+      overflow: hidden;
+    ">
+      <span style="position: relative; z-index: 1;">Faire la demande</span>
+      <div class="btn-shine" style="
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+        transform: translate(-100%, -100%);
+        transition: transform 0.6s ease;
+      "></div>
+    </a>
+
+    <style>
+      .document-card:hover .card-glow {
+        opacity: 1;
+      }
+      .document-card:hover .title-underline {
+        width: 100%;
+      }
+      .document-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,98,51,0.3);
+      }
+      .btn:hover .btn-shine {
+        transform: translate(100%, 100%);
+      }
+      .requirements:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+    </style>
+</article>
+</main>
+
+<section class="contact-section" style="
+  background: linear-gradient(135deg, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+  padding: 4rem 2rem;
+  margin: 2rem 0;
+">
+  <div class="container" style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="
+      text-align: center;
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    ">
+      Contactez-nous
+      <div style="
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        border-radius: 2px;
+      "></div>
+    </h2>
+
+    <!-- Added Contact Form -->
+    <div class="contact-form" style="
+      max-width: 600px;
+      margin: 3rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    ">
+      <form id="emailForm" style="
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      ">
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <label for="name" style="color: var(--primary); font-weight: 500;">Nom complet</label>
+          <input type="text" id="name" name="name" required="" style="
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+          ">
+        </div>
+
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <label for="email" style="color: var(--primary); font-weight: 500;">Email</label>
+          <input type="email" id="email" name="email" required="" style="
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+          ">
+        </div>
+
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <label for="subject" style="color: var(--primary); font-weight: 500;">Sujet</label>
+          <input type="text" id="subject" name="subject" required="" style="
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+          ">
+        </div>
+
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <label for="message" style="color: var(--primary); font-weight: 500;">Message</label>
+          <textarea id="message" name="message" required="" rows="5" style="
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+            resize: vertical;
+          "></textarea>
+        </div>
+
+        <button type="submit" style="
+          background: linear-gradient(135deg, var(--primary), var(--secondary));
+          color: white;
+          padding: 1rem 2rem;
+          border: none;
+          border-radius: 8px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        ">
+          <span style="position: relative; z-index: 1;">Envoyer le message</span>
+          <div class="btn-shine" style="
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+            transform: translate(-100%, -100%);
+            transition: transform 0.6s ease;
+          "></div>
+        </button>
+      </form>
+    </div>
+
+    <style>
+      .form-group input:focus,
+      .form-group textarea:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(0,98,51,0.1);
+      }
+
+      .form-group input:hover,
+      .form-group textarea:hover {
+        border-color: var(--primary);
+      }
+
+      button[type="submit"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,98,51,0.3);
+      }
+
+      button[type="submit"]:hover .btn-shine {
+        transform: translate(100%, 100%);
+      }
+
+      button[type="submit"]:active {
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
+        .contact-form {
+          padding: 1.5rem;
+          margin: 2rem 1rem;
+        }
+      }
+    </style>
+
+    <script>
+      document.getElementById('emailForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          subject: document.getElementById('subject').value,
+          message: document.getElementById('message').value
+        };
+
+        // Here you would typically send the data to your server
+        // For demonstration, we'll just log it
+        console.log('Form submitted:', formData);
+
+        // Show success message
+        alert('Message envoyé avec succès! Nous vous répondrons dans les plus brefs délais.');
+        
+        // Reset form
+        e.target.reset();
+      });
+
+      // Add animation to form fields
+      const formFields = document.querySelectorAll('input, textarea');
+      formFields.forEach(field => {
+        field.addEventListener('focus', function() {
+          this.parentElement.style.transform = 'translateY(-2px)';
+          this.parentElement.style.transition = 'transform 0.3s ease';
+        });
+
+        field.addEventListener('blur', function() {
+          this.parentElement.style.transform = 'translateY(0)';
+        });
+      });
+    </script>
+
+    <div class="contact-grid" style="
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    ">
+      <!-- Rest of the contact cards remain unchanged -->
+      <div class="contact-card" style="
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+      ">
+        <svg style="width: 48px; height: 48px; margin-bottom: 1rem; fill: var(--primary);" viewBox="0 0 24 24">
+          <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"></path>
+        </svg>
+        <h3 style="color: var(--primary); margin-bottom: 1rem;">Email</h3>
+        <a href="mailto:contact@docudemande.fr" style="
+          color: var(--dark);
+          text-decoration: none;
+          transition: color 0.3s ease;
+        ">contact@docudemande.fr</a>
+      </div>
+
+      <div class="contact-card" style="
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+      ">
+        <svg style="width: 48px; height: 48px; margin-bottom: 1rem; fill: var(--primary);" viewBox="0 0 24 24">
+          <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"></path>
+        </svg>
+        <h3 style="color: var(--primary); margin-bottom: 1rem;">Téléphone</h3>
+        <a href="tel:+212520000000" style="
+          color: var(--dark);
+          text-decoration: none;
+          transition: color 0.3s ease;
+        ">+212 5 20 00 00 00</a>
+      </div>
+
+      <div class="contact-card" style="
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+      ">
+        <svg style="width: 48px; height: 48px; margin-bottom: 1rem; fill: var(--primary);" viewBox="0 0 24 24">
+          <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"></path>
+        </svg>
+        <h3 style="color: var(--primary); margin-bottom: 1rem;">Adresse</h3>
+        <p style="color: var(--dark);">123 Avenue Mohammed V<br>Rabat, Maroc</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="
+  background: var(--dark);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+">
+  <div class="container" style="max-width: 1200px; margin: 0 auto;">
+    <div class="footer-content" style="
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 2rem;
+    ">
+      <div class="footer-logo" style="margin-bottom: 2rem;">
+        <svg class="morocco-flag" viewBox="0 0 640 480" style="width: 32px; height: 24px; margin-bottom: 1rem;">
+          <path fill="#c1272d" d="M640 0H0v480h640z"></path>
+          <path fill="none" stroke="#006233" stroke-width="11.7" d="M320 179.4L284.4 289l93.2-67.6H262.4l93.2 67.6z"></path>
+        </svg>
+        <h3 style="color: white; font-size: 1.5rem;">DocuDemande</h3>
+      </div>
+      <div class="social-links" style="
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+      ">
+        <a href="https://facebook.com/docudemande" style="
+          color: white;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        ">
+          <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"></path>
+          </svg>
+        </a>
+        <a href="https://twitter.com/docudemande" style="
+          color: white;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        ">
+          <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"></path>
+          </svg>
+        </a>
+        <a href="https://linkedin.com/company/docudemande" style="
+          color: white;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        ">
+          <svg style="width: 24px; height: 24px;" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    ">
+      <p>© 2024 DocuDemande. Tous droits réservés.</p>
+      <div class="footer-links" style="display: flex; gap: 1.5rem;">
+        <a href="https://docudemande.fr/confidentialite" style="color: inherit; text-decoration: none;">Politique de confidentialité</a>
+        <a href="https://docudemande.fr/conditions" style="color: inherit; text-decoration: none;">Conditions d'utilisation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.contact-card a:hover {
+  color: var(--primary);
+}
+
+.social-links a:hover {
+  color: var(--primary);
+}
+
+.footer-links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+</style>
+
+<script>
+// Improved scroll animation observer
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '50px'
+  });
+
+  // Apply to all animate-on-scroll elements
+  document.querySelectorAll('.animate-on-scroll').forEach(element => {
+    scrollObserver.observe(element);
+  });
+
+  // Smooth scroll implementation
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return; // Skip empty anchors
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Fixed version of createDigitalParticles
+  function createDigitalParticles() {
+    const sections = document.querySelectorAll('.digital-platform-section');
+    
+    sections.forEach(section => {
+      // Clear existing particles first
+      const existingParticles = section.querySelector('.digital-particles');
+      if (existingParticles) {
+        existingParticles.remove();
+      }
+
+      // Create new particles container
+      const particlesContainer = document.createElement('div');
+      particlesContainer.className = 'digital-particles';
+      
+      // Add particles
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'digital-particle';
+        particle.style.cssText = `
+          position: absolute;
+          width: 2px;
+          height: 2px;
+          background: rgba(255,255,255,0.5);
+          left: ${Math.random() * 100}%;
+          top: ${Math.random() * 100}%;
+          animation: float ${3 + Math.random() * 2}s ease-in-out infinite;
+        `;
+        particlesContainer.appendChild(particle);
+      }
+      
+      section.appendChild(particlesContainer);
+    });
+  }
+
+  // Safely call createDigitalParticles
+  try {
+    createDigitalParticles();
+  } catch (error) {
+    console.log('Digital particles creation deferred');
+  }
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Add loading state to buttons
+  document.querySelectorAll('.btn').forEach(button => {
+    button.originalText = button.innerHTML; // Store original text
+    button.addEventListener('click', function(e) {
+      this.innerHTML = '<span class="loading">Chargement...</span>';
+      setTimeout(() => {
+        this.innerHTML = this.originalText;
+      }, 2000);
+    });
+  });
+
+  // Add smooth scroll behavior
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Add hover effects
+  const cards = document.querySelectorAll('.document-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-2px)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+    });
+  });
+
+  // Add scroll reveal animation
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.6s ease-out';
+    observer.observe(card);
+  });
+  
+  // Add info tooltip functionality
+  const requirements = document.querySelectorAll('.requirements');
+  requirements.forEach(req => {
+    req.style.cursor = 'pointer';
+    req.addEventListener('click', () => {
+      req.classList.toggle('expanded');
+    });
+  });
+});
+</script>
+
+</body></html>
