@@ -1,0 +1,167 @@
+<html><head><base href="/">
+<title>DocuDemande - Inscription</title>
+<style>
+:root {
+  --primary: #006233;
+  --secondary: #c1272d;
+  --light: #f8f9fa;
+  --dark: #2d3748;
+  --gray: #718096;
+  --border: #e2e8f0;
+  --font-heading: 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-arabic: 'Amiri', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(0,98,51,0.97), rgba(193,39,45,0.97)),
+    url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%23ffffff" fill-opacity="0.1" d="M0,64L48,96C96,128,192,192,288,192C384,192,480,128,576,122.7C672,117,768,171,864,176C960,181,1056,139,1152,117.3C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.register-container {
+  max-width: 500px;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.register-section {
+  padding: 3rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0,98,51,0.1);
+  transform: translateY(-2px);
+}
+
+button {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+</style>
+</head>
+<body>
+  <div class="register-container">
+    <div class="decoration"></div>
+    <div class="register-section">
+      <h2 style="color: var(--primary); font-size: 2rem; margin-bottom: 2rem; text-align: center;">
+        Inscription
+      </h2>
+      
+      <form id="registerForm">
+        <div class="form-group">
+          <input type="text" placeholder="Prénom" required>
+        </div>
+        
+        <div class="form-group">
+          <input type="text" placeholder="Nom" required>
+        </div>
+        
+        <div class="form-group">
+          <input type="email" placeholder="Email" required>
+        </div>
+        
+        <div class="form-group">
+          <input type="password" placeholder="Mot de passe" required>
+        </div>
+        
+        <div class="form-group">
+          <input type="text" placeholder="Adresse" required>
+        </div>
+        
+        <div class="form-group">
+          <input type="tel" placeholder="Téléphone" required>
+        </div>
+        
+        <div class="form-group">
+          <input type="text" placeholder="CIN" required>
+        </div>
+        
+        <button type="submit">S'inscrire</button>
+        
+        <p style="text-align: center; margin-top: 1.5rem;">
+          <a href="" style="color: var(--primary); text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease;">
+            Déjà vous avez un compte ? Connexion
+          </a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const button = e.target.querySelector('button');
+      const originalText = button.innerHTML;
+      button.innerHTML = 'Chargement...';
+      setTimeout(() => {
+        button.innerHTML = originalText;
+      }, 2000);
+    });
+
+    // Add animation for inputs
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+      input.addEventListener('focus', () => {
+        input.style.transform = 'translateY(-2px)';
+      });
+      
+      input.addEventListener('blur', () => {
+        input.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+</body>
+</html>
