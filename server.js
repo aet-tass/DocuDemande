@@ -4,10 +4,11 @@ const port = 3000;
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'Frontend')));
 
+//Get requests :
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Frontend', 'LandingPage.html')); 
 });
-
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'Frontend', 'LoginRegister.html')); 
 });
