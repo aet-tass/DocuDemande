@@ -1,0 +1,1234 @@
+<!DOCTYPE html><html><head><base href="/">
+<title>DocuDemande - Suivi des demandes</title>
+<style>
+:root {
+  --primary: #006233;  /* Moroccan green - made lighter */
+  --secondary: #c1272d; /* Moroccan red - made softer */
+  --light: #f8f9fa;
+  --dark: #2d3748;
+  --gray: #718096;
+  --border: #e2e8f0;
+  --font-heading: 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-arabic: 'Amiri', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+.header {
+  background: linear-gradient(to right, rgba(0,98,51,0.1), rgba(193,39,45,0.1));
+  padding: 1.5rem 2rem;
+  border-bottom: 2px solid var(--primary);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.morocco-flag {
+  width: 32px;
+  height: 24px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  transition: all 0.2s;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  background: rgba(0,98,51,0.1);
+}
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+}
+
+.lang-btn {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: var(--dark);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.lang-btn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+  padding: 8rem 2rem 6rem;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero h2 {
+  font-family: var(--font-arabic);
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-top: 1rem;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--gray);
+  margin-top: 0.5rem;
+}
+
+.service-section {
+  padding: 4rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.info-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.info-card ul {
+  list-style: disc inside;
+  margin-top: 1rem;
+}
+
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.document-card {
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0,98,51,0.1);
+}
+
+.document-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.document-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.document-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 3px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  fill: var(--primary);
+}
+
+.btn {
+  background: var(--secondary);
+  color: white;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #a01f24;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.features {
+  background: white;
+  padding: 4rem 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.info-banner {
+  background: #EBF8FF;
+  border-left: 4px solid var(--primary);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.document-card .requirements {
+  background: linear-gradient(145deg, rgba(248,249,250,0.8), rgba(255,255,255,0.8));
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(0,98,51,0.1);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.document-card .requirements h4 {
+  color: var(--primary);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.document-card .requirements h4::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.document-card .requirements ul {
+  list-style: none;
+  margin-left: 1rem;
+}
+
+.document-card .requirements li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.document-card .requirements li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.document-card .timing {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--primary);
+  font-size: 1rem;
+  margin: 1.5rem 0;
+  padding: 0.75rem;
+  background: rgba(0,98,51,0.05);
+  border-radius: 6px;
+}
+
+.request-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.request-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,98,51,0.2);
+}
+
+.request-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.request-btn:hover::after {
+  left: 100%;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .documents-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+
+.vision-section {
+  background: linear-gradient(to right, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+}
+
+.vision-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.vision-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-section {
+  background: linear-gradient(135deg, rgba(0,98,51,0.97), rgba(193,39,45,0.97)),
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M0 0h100v100H0z'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-size='8' fill='white'%3E010101%3C/text%3E%3C/g%3E%3C/svg%3E"),
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cdefs%3E%3CradialGradient id='circles'%3E%3Cstop offset='0%25' stop-color='white' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='white' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='400' cy='400' r='300' fill='none' stroke='url(%23circles)' stroke-width='1'/%3E%3Ccircle cx='400' cy='400' r='200' fill='none' stroke='url(%23circles)' stroke-width='1'/%3E%3Ccircle cx='400' cy='400' r='100' fill='none' stroke='url(%23circles)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: cover, 100px 100px, cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(45deg, 
+      rgba(255,255,255,0.03) 0px, 
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px, 
+      transparent 10px
+    );
+  pointer-events: none;
+}
+
+/* Add floating digital elements */
+.info-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 10%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 10%);
+  animation: floatDigital 20s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes floatDigital {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Enhance info cards for better contrast */
+.info-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Add digital particles styles */
+.digital-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.digital-particle {
+  position: absolute;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Improve scrolling performance */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+.digital-platform-section {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.register-section {
+  display: none; /* Initially hide register section */
+  transition: all 0.3s ease;
+}
+
+.auth-container {
+  max-width: 500px; /* Smaller initial width for login only */
+  transition: all 0.5s ease;
+}
+
+/* Add animation for register section */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.register-section {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.register-section.active {
+  animation: slideIn 0.5s ease forwards;
+}
+
+.sidebar-link:hover {
+  background: rgba(0,98,51,0.05);
+  color: var(--primary);
+}
+
+.sidebar-link.active {
+  font-weight: 500;
+}
+
+.request-btn {
+  background: linear-gradient(45deg, var(--primary), rgba(0,98,51,0.9));
+  border: none;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.request-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.request-btn:hover::after {
+  left: 100%;
+}
+
+.sidebar {
+  background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);
+  border-right: 1px solid var(--border);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-header h2 {
+  font-family: var(--font-heading);
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  color: var(--gray);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0 20px 20px 0;
+  margin: 0.25rem 0;
+  position: relative;
+}
+
+.sidebar-link svg {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-link:hover {
+  color: var(--primary);
+  background: linear-gradient(90deg, rgba(0,98,51,0.1), transparent);
+  transform: translateX(5px);
+}
+
+.sidebar-link.active {
+  color: var(--primary);
+  background: linear-gradient(90deg, rgba(0,98,51,0.15), transparent);
+  font-weight: 600;
+}
+
+.sidebar-link.active svg {
+  transform: scale(1.1);
+}
+
+.sidebar-link.logout {
+  margin-top: auto;
+  color: var(--secondary);
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+.sidebar-link.logout:hover {
+  background: linear-gradient(90deg, rgba(193,39,45,0.1), transparent);
+  color: var(--secondary);
+}
+
+.tracking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.tracking-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.tracking-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.request-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.request-type {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.request-date {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.status-pending {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.status-processing {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+.status-completed {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.status-rejected {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+.request-details {
+  margin-top: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.detail-label {
+  color: var(--gray);
+}
+
+.detail-value {
+  font-weight: 500;
+}
+
+.tracking-filters {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: white;
+  color: var(--gray);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.filter-btn:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.no-requests {
+  text-align: center;
+  padding: 4rem;
+  color: var(--gray);
+}
+
+.progress-timeline {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.timeline-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.step-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--border);
+  margin: 0 auto 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.step-label {
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+.step-completed .step-dot {
+  background: var(--primary);
+}
+
+.step-completed .step-label {
+  color: var(--primary);
+}
+
+.timeline-line {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+
+.timeline-progress {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 2px;
+  background: var(--primary);
+  z-index: 0;
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .documents-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+
+/* Add these styles */
+.download-btn,
+.resubmit-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  text-decoration: none;
+  border: none;
+  width: 100%;
+}
+
+.download-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.download-btn:hover {
+  background: #004d29;
+}
+
+.resubmit-btn {
+  background: var(--secondary);
+  color: white;
+}
+
+.resubmit-btn:hover {
+  background: #a01f24;
+}
+
+.status-rejected {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+.detail-item .detail-value.rejection-reason {
+  color: #991B1B;
+  font-weight: normal;
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <div class="logo-container">
+      <div class="flag-wrapper">
+        <svg class="morocco-flag" viewBox="0 0 640 480">
+          <path fill="#c1272d" d="M640 0H0v480h640z"></path>
+          <path fill="none" stroke="#006233" stroke-width="11.7" d="M320 179.4L284.4 289l93.2-67.6H262.4l93.2 67.6z"></path>
+        </svg>
+      </div>
+      <a href="https://docudemande.fr" class="logo">
+        <div>
+          <span style="background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">DocuDemande</span>
+          <span style="font-size: 0.7em; color: var(--gray);">وثائق الحالة المدنية</span>
+        </div>
+      </a>
+    </div>
+    <div class="nav-links">
+      <div class="nav-group">
+        <a href="https://docudemande.fr/services" class="nav-link">Nos Services</a>
+        <a href="https://docudemande.fr/aide" class="nav-link">Aide</a>
+      </div>
+      <div class="lang-switcher">
+        <a href="#" class="lang-btn">FR</a>
+        <a href="#" class="lang-btn">العربية</a>
+        <a href="#" class="lang-btn">ⵜⴰⵎⴰⵣⵉⵖⵜ</a>
+      </div>
+      <a href="https://docudemande.fr/connexion" class="btn">Connexion</a>
+    </div>
+  </nav>
+</header>
+
+<main style="min-height: 100vh; display: flex; background: #f8f9fa;">
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>
+        <svg viewBox="0 0 24 24" style="width: 24px; height: 24px;">
+          <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
+        </svg>
+        Espace Personnel
+      </h2>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <a href="/services" class="sidebar-link">Services</a>
+      <a href="/tracking" class="sidebar-link active">Suivi des demandes</a>
+      <a href="/profile" class="sidebar-link">Profile</a>
+      <a href="/logout" class="sidebar-link logout">Déconnexion</a>
+    </nav>
+  </div>
+
+  <div class="main-content" style="flex: 1; padding: 2rem;">
+    <h1 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 2rem;">Suivi des demandes</h1>
+
+    <div class="tracking-filters">
+  <button class="filter-btn active">Toutes les demandes</button>
+  <button class="filter-btn">En cours</button>
+  <button class="filter-btn">Terminées</button>
+  <button class="filter-btn">Refusées</button>
+</div>
+
+    <div class="tracking-grid">
+      <div class="tracking-card">
+        <div class="request-header">
+          <span class="request-type">Acte de naissance</span>
+          <span class="request-date">20 Nov 2023</span>
+        </div>
+        
+        <div class="progress-timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-progress" style="width: 66%;"></div>
+          
+          <div class="timeline-step step-completed">
+            <div class="step-dot"></div>
+            <div class="step-label">Soumise</div>
+          </div>
+          
+          <div class="timeline-step step-completed">
+            <div class="step-dot"></div>
+            <div class="step-label">En traitement</div>
+          </div>
+          
+          <div class="timeline-step">
+            <div class="step-dot"></div>
+            <div class="step-label">Terminée</div>
+          </div>
+        </div>
+
+        <div class="status-badge status-processing">
+          <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+            <path fill="currentColor" d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z">
+              <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"></animateTransform>
+            </path>
+          </svg>
+          En cours de traitement
+        </div>
+
+        <div class="request-details">
+          <div class="detail-item">
+            <span class="detail-label">Numéro de demande</span>
+            <span class="detail-value">#2023112001</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Date de soumission</span>
+            <span class="detail-value">20 Nov 2023</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Délai estimé</span>
+            <span class="detail-value">2-3 jours</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tracking-card">
+  <div class="request-header">
+    <span class="request-type">Acte de mariage</span>
+    <span class="request-date">18 Nov 2023</span>
+  </div>
+  
+  <div class="progress-timeline">
+    <div class="timeline-line"></div>
+    <div class="timeline-progress" style="width: 100%;"></div>
+    
+    <div class="timeline-step step-completed">
+      <div class="step-dot"></div>
+      <div class="step-label">Soumise</div>
+    </div>
+    
+    <div class="timeline-step step-completed">
+      <div class="step-dot"></div>
+      <div class="step-label">En traitement</div>
+    </div>
+    
+    <div class="timeline-step step-completed">
+      <div class="step-dot"></div>
+      <div class="step-label">Terminée</div>
+    </div>
+  </div>
+
+  <div class="status-badge status-completed">
+    <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+      <path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
+    </svg>
+    Terminée
+  </div>
+
+  <div class="request-details">
+    <div class="detail-item">
+      <span class="detail-label">Numéro de demande</span>
+      <span class="detail-value">#2023111801</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Date de soumission</span>
+      <span class="detail-value">18 Nov 2023</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Date de complétion</span>
+      <span class="detail-value">21 Nov 2023</span>
+    </div>
+  </div>
+
+  <a href="#" class="download-btn">
+    <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+      <path fill="currentColor" d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"></path>
+    </svg>
+    Télécharger le document
+  </a>
+</div>
+
+      <div class="tracking-card">
+  <div class="request-header">
+    <span class="request-type">Acte de décès</span>
+    <span class="request-date">15 Nov 2023</span>
+  </div>
+  
+  <div class="progress-timeline">
+    <div class="timeline-line"></div>
+    <div class="timeline-progress" style="width: 100%;"></div>
+    
+    <div class="timeline-step step-completed">
+      <div class="step-dot"></div>
+      <div class="step-label">Soumise</div>
+    </div>
+    
+    <div class="timeline-step step-completed">
+      <div class="step-dot"></div>
+      <div class="step-label">En traitement</div>
+    </div>
+    
+    <div class="timeline-step step-completed">
+      <div class="step-dot"></div>
+      <div class="step-label">Terminée</div>
+    </div>
+  </div>
+
+  <div class="status-badge status-completed">
+    <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+      <path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
+    </svg>
+    Terminée
+  </div>
+
+  <div class="request-details">
+    <div class="detail-item">
+      <span class="detail-label">Numéro de demande</span>
+      <span class="detail-value">#2023111501</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Date de soumission</span>
+      <span class="detail-value">15 Nov 2023</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Date de complétion</span>
+      <span class="detail-value">18 Nov 2023</span>
+    </div>
+  </div>
+
+  <a href="#" class="download-btn">
+    <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+      <path fill="currentColor" d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"></path>
+    </svg>
+    Télécharger le document
+  </a>
+</div>
+
+      <div class="tracking-card">
+  <div class="request-header">
+    <span class="request-type">Attestation de travail</span>
+    <span class="request-date">12 Nov 2023</span>
+  </div>
+  
+  <div class="progress-timeline">
+    <div class="timeline-line"></div>
+    <div class="timeline-progress" style="width: 33%;"></div>
+    
+    <div class="timeline-step step-completed">
+      <div class="step-dot"></div>
+      <div class="step-label">Soumise</div>
+    </div>
+    
+    <div class="timeline-step step-completed">
+      <div class="step-dot" style="background: #991B1B;"></div>
+      <div class="step-label" style="color: #991B1B;">Refusée</div>
+    </div>
+  </div>
+
+  <div class="status-badge status-rejected">
+    <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+      <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path>
+    </svg>
+    Refusée
+  </div>
+
+  <div class="request-details">
+    <div class="detail-item">
+      <span class="detail-label">Numéro de demande</span>
+      <span class="detail-value">#2023111201</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Date de soumission</span>
+      <span class="detail-value">12 Nov 2023</span>
+    </div>
+    <div class="detail-item">
+      <span class="detail-label">Motif de refus</span>
+      <span class="detail-value rejection-reason">Documents fournis incomplets ou illisibles</span>
+    </div>
+  </div>
+
+  <button class="resubmit-btn">
+    <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+      <path fill="currentColor" d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z"></path>
+    </svg>
+    Refaire la demande
+  </button>
+</div>
+    </div>
+  </div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const trackingGrid = document.querySelector('.tracking-grid');
+  
+  // Filter buttons functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.tracking-card');
+  
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const filter = btn.textContent.toLowerCase();
+      
+      cards.forEach(card => {
+        if (filter === 'toutes les demandes') {
+          card.style.display = 'block';
+        } else {
+          const status = card.querySelector('.status-badge').classList;
+          if (status.contains(`status-${getStatusClass(filter)}`)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+
+  function getStatusClass(filter) {
+    const statusMap = {
+      'en attente': 'pending',
+      'en cours': 'processing', 
+      'terminées': 'completed',
+      'refusées': 'rejected'
+    };
+    return statusMap[filter];
+  }
+
+  // Add download functionality
+  const downloadBtns = document.querySelectorAll('.download-btn');
+  downloadBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Simulate download - replace with actual download logic
+      alert('Téléchargement du document en cours...');
+    });
+  });
+
+  // Add resubmit functionality 
+  const resubmitBtns = document.querySelectorAll('.resubmit-btn');
+  resubmitBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = '/services';
+    });
+  });
+
+  // Sidebar interactions
+  const sidebarLinks = document.querySelectorAll('.sidebar-link');
+  sidebarLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      link.querySelector('svg').style.transform = 'scale(1.1) rotate(5deg)';
+    });
+    
+    link.addEventListener('mouseleave', () => {
+      link.querySelector('svg').style.transform = link.classList.contains('active') ? 'scale(1.1)' : 'scale(1)';
+    });
+  });
+
+  // Logout functionality
+  const logoutLink = document.querySelector('.sidebar-link.logout');
+  logoutLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.href = '/logout';
+      }, 300);
+    }
+  });
+});
+</script>
+
+
+</body></html>
