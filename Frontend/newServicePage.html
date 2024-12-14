@@ -1,0 +1,1060 @@
+<html><head><base href="/">
+<title>DocuDemande - Services</title>
+<style>
+:root {
+  --primary: #006233;  /* Moroccan green - made lighter */
+  --secondary: #c1272d; /* Moroccan red - made softer */
+  --light: #f8f9fa;
+  --dark: #2d3748;
+  --gray: #718096;
+  --border: #e2e8f0;
+  --font-heading: 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-arabic: 'Amiri', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+.header {
+  background: linear-gradient(to right, rgba(0,98,51,0.1), rgba(193,39,45,0.1));
+  padding: 1.5rem 2rem;
+  border-bottom: 2px solid var(--primary);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.morocco-flag {
+  width: 32px;
+  height: 24px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  transition: all 0.2s;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  background: rgba(0,98,51,0.1);
+}
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+}
+
+.lang-btn {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: var(--dark);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.lang-btn:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+  padding: 8rem 2rem 6rem;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero h2 {
+  font-family: var(--font-arabic);
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-top: 1rem;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--gray);
+  margin-top: 0.5rem;
+}
+
+.service-section {
+  padding: 4rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.info-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.info-card ul {
+  list-style: disc inside;
+  margin-top: 1rem;
+}
+
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.document-card {
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0,98,51,0.1);
+}
+
+.document-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.document-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.document-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 3px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  fill: var(--primary);
+}
+
+.btn {
+  background: var(--secondary);
+  color: white;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #a01f24;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.features {
+  background: white;
+  padding: 4rem 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.info-banner {
+  background: #EBF8FF;
+  border-left: 4px solid var(--primary);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.document-card .requirements {
+  background: linear-gradient(145deg, rgba(248,249,250,0.8), rgba(255,255,255,0.8));
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(0,98,51,0.1);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.document-card .requirements h4 {
+  color: var(--primary);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.document-card .requirements h4::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.document-card .requirements ul {
+  list-style: none;
+  margin-left: 1rem;
+}
+
+.document-card .requirements li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.document-card .requirements li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.document-card .timing {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--primary);
+  font-size: 1rem;
+  margin: 1.5rem 0;
+  padding: 0.75rem;
+  background: rgba(0,98,51,0.05);
+  border-radius: 6px;
+}
+
+.request-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.request-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,98,51,0.2);
+}
+
+.request-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.request-btn:hover::after {
+  left: 100%;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .documents-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+
+.vision-section {
+  background: linear-gradient(to right, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+}
+
+.vision-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.vision-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-section {
+  background: linear-gradient(135deg, rgba(0,98,51,0.97), rgba(193,39,45,0.97)),
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M0 0h100v100H0z'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-size='8' fill='white'%3E010101%3C/text%3E%3C/g%3E%3C/svg%3E"),
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cdefs%3E%3CradialGradient id='circles'%3E%3Cstop offset='0%25' stop-color='white' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='white' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='400' cy='400' r='300' fill='none' stroke='url(%23circles)' stroke-width='1'/%3E%3Ccircle cx='400' cy='400' r='200' fill='none' stroke='url(%23circles)' stroke-width='1'/%3E%3Ccircle cx='400' cy='400' r='100' fill='none' stroke='url(%23circles)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: cover, 100px 100px, cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(45deg, 
+      rgba(255,255,255,0.03) 0px, 
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px, 
+      transparent 10px
+    );
+  pointer-events: none;
+}
+
+/* Add floating digital elements */
+.info-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 10%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 10%);
+  animation: floatDigital 20s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes floatDigital {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Enhance info cards for better contrast */
+.info-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Add digital particles styles */
+.digital-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.digital-particle {
+  position: absolute;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Improve scrolling performance */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+.digital-platform-section {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.register-section {
+  display: none; /* Initially hide register section */
+  transition: all 0.3s ease;
+}
+
+.auth-container {
+  max-width: 500px; /* Smaller initial width for login only */
+  transition: all 0.5s ease;
+}
+
+/* Add animation for register section */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.register-section {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.register-section.active {
+  animation: slideIn 0.5s ease forwards;
+}
+
+.sidebar-link:hover {
+  background: rgba(0,98,51,0.05);
+  color: var(--primary);
+}
+
+.sidebar-link.active {
+  font-weight: 500;
+}
+
+.request-btn {
+  background: linear-gradient(45deg, var(--primary), rgba(0,98,51,0.9));
+  border: none;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.request-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.request-btn:hover::after {
+  left: 100%;
+}
+
+.sidebar {
+  background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);
+  border-right: 1px solid var(--border);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-header h2 {
+  font-family: var(--font-heading);
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  color: var(--gray);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0 20px 20px 0;
+  margin: 0.25rem 0;
+  position: relative;
+}
+
+.sidebar-link svg {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-link:hover {
+  color: var(--primary);
+  background: linear-gradient(90deg, rgba(0,98,51,0.1), transparent);
+  transform: translateX(5px);
+}
+
+.sidebar-link.active {
+  color: var(--primary);
+  background: linear-gradient(90deg, rgba(0,98,51,0.15), transparent);
+  font-weight: 600;
+}
+
+.sidebar-link.active svg {
+  transform: scale(1.1);
+}
+
+.sidebar-link.logout {
+  margin-top: auto;
+  color: var(--secondary);
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+.sidebar-link.logout:hover {
+  background: linear-gradient(90deg, rgba(193,39,45,0.1), transparent);
+  color: var(--secondary);
+}
+
+.document-card {
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0,98,51,0.1);
+}
+
+.document-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.document-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.document-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 3px;
+}
+
+.requirements {
+  background: linear-gradient(145deg, rgba(248,249,250,0.8), rgba(255,255,255,0.8));
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(0,98,51,0.1);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.requirements h4 {
+  color: var(--primary);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.requirements h4::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.requirements ul {
+  list-style: none;
+  margin-left: 1rem;
+}
+
+.requirements li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.requirements li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.timing {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--primary);
+  font-size: 1rem;
+  margin: 1.5rem 0;
+  padding: 0.75rem;
+  background: rgba(0,98,51,0.05);
+  border-radius: 6px;
+}
+
+.request-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.request-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,98,51,0.2);
+}
+
+.request-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.request-btn:hover::after {
+  left: 100%;
+}
+</style>
+</head>
+<body>
+
+<header class="header" style="background: linear-gradient(135deg, rgba(0,98,51,0.1) 0%, rgba(193,39,45,0.1) 100%); padding: 1.5rem 2rem; border-bottom: 3px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); transition: all 0.3s ease;">
+  <nav class="nav" style="position: relative;">
+    <div class="logo-container" style="display: flex; align-items: center; gap: 1.5rem;">
+      <div class="flag-wrapper" style="position: relative; display: flex; align-items: center;">
+        <svg class="morocco-flag" viewBox="0 0 640 480" style="filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));">
+          <path fill="#c1272d" d="M640 0H0v480h640z"></path>
+          <path fill="none" stroke="#006233" stroke-width="11.7" d="M320 179.4L284.4 289l93.2-67.6H262.4l93.2 67.6z"></path>
+        </svg>
+        <div class="pulse-effect" style="position: absolute; width: 100%; height: 100%; border-radius: 50%; background: rgba(0,98,51,0.1); animation: pulse 2s infinite;"></div>
+      </div>
+      <a href="https://docudemande.fr" class="logo" style="font-size: 1.5rem; font-weight: 600; text-decoration: none; position: relative; display: flex; flex-direction: column; align-items: flex-start;">
+  <div style="position: relative; display: inline-block;">
+    <span style="background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">DocuDemande</span>
+    <span style="font-size: 0.7em; color: var(--gray); position: absolute; bottom: -1em; left: 50%; transform: translateX(-50%); white-space: nowrap; opacity: 0.8;">وثائق الحالة المدنية</span>
+  </div>
+  <div class="logo-highlight" style="position: absolute; width: 100%; height: 2px; bottom: -4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left;"></div>
+</a>
+    </div>
+    <div class="nav-links" style="display: flex; align-items: center; gap: 2rem;">
+      <div class="nav-group" style="display: flex; gap: 1.5rem;">
+        <a href="https://docudemande.fr/services" class="nav-link" style="position: relative; text-decoration: none; color: var(--dark); padding: 0.5rem 1rem; transition: all 0.3s ease; border-radius: 4px;">
+          <span>Nos Services</span>
+          <span class="hover-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s ease;"></span>
+        </a>
+        <a href="https://docudemande.fr/aide" class="nav-link" style="position: relative; text-decoration: none; color: var(--dark); padding: 0.5rem 1rem; transition: all 0.3s ease; border-radius: 4px;">
+          <span>Aide</span>
+          <span class="hover-line" style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s ease;"></span>
+        </a>
+      </div>
+      <div class="lang-switcher" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: rgba(0,0,0,0.03); border-radius: 8px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);">
+        <a href="#" class="lang-btn" style="padding: 0.4rem 0.8rem; border-radius: 6px; font-weight: 500; transition: all 0.3s ease; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">FR</a>
+        <a href="#" class="lang-btn" style="padding: 0.4rem 0.8rem; border-radius: 6px; transition: all 0.3s ease;">العربية</a>
+        <a href="#" class="lang-btn" style="padding: 0.4rem 0.8rem; border-radius: 6px; transition: all 0.3s ease;">ⵜⴰⵎⴰⵣⵉⵖⵜ</a>
+      </div>
+      <a href="https://docudemande.fr/connexion" class="btn" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: relative; overflow: hidden;">
+        <span style="position: relative; z-index: 1;">Connexion</span>
+        <div class="btn-highlight" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, var(--primary), var(--secondary)); opacity: 0; transition: opacity 0.3s ease;"></div>
+      </a>
+    </div>
+  </nav>
+  <style>
+    .header:hover {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .nav-link:hover {
+      background: rgba(0,98,51,0.05);
+      transform: translateY(-1px);
+    }
+    .nav-link:hover .hover-line {
+      width: 100%;
+    }
+    .lang-btn:hover {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transform: translateY(-1px);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .btn:hover .btn-highlight {
+      opacity: 0.2;
+    }
+    .logo:hover .logo-highlight {
+      transform: scaleX(1);
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.1); opacity: 0.4; }
+      100% { transform: scale(1); opacity: 0.6; }
+    }
+    @media (max-width: 768px) {
+      .header {
+        padding: 1rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      .lang-switcher {
+        display: none;
+      }
+    }
+  </style>
+</header>
+
+<main style="
+  min-height: 100vh;
+  display: flex;
+  background: #f8f9fa;
+">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2 style="
+        font-size: 1.2rem;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      ">
+        <svg viewBox="0 0 24 24" style="width: 24px; height: 24px;">
+          <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
+        </svg>
+        Espace Personnel
+      </h2>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <a href="/services" class="sidebar-link active">
+        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+          <path fill="currentColor" d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,19H5V5H19V19Z"></path>
+        </svg>
+        Services
+      </a>
+      
+      <a href="/tracking" class="sidebar-link">
+        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+          <path fill="currentColor" d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,12.5L7.5,8L8.91,6.59L12,9.67L15.09,6.59L16.5,8L12,12.5Z"></path>
+        </svg>
+        Suivi des demandes
+      </a>
+      
+      <a href="/profile" class="sidebar-link">
+        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+          <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path>
+        </svg>
+        Profile
+      </a>
+      
+      <a href="/logout" class="sidebar-link logout">
+        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+          <path fill="currentColor" d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z"></path>
+        </svg>
+        Déconnexion
+      </a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h1 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 2rem;">Nos Services</h1>
+    
+    <div class="documents-grid">
+  <!-- Birth Certificate -->
+  <div class="document-card">
+    <h3>Acte de naissance</h3>
+    
+    <div class="requirements">
+      <h4>Documents requis</h4>
+      <ul>
+        <li>Copie de la CIN</li>
+        <li>Photo d'identité récente</li>
+        <li>Formulaire de demande</li>
+      </ul>
+    </div>
+    
+    <div class="timing">
+      <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor;">
+        <path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"></path>
+      </svg>
+      Délai: 2-3 jours ouvrables
+    </div>
+    
+    <button class="request-btn">Faire une demande</button>
+  </div>
+
+  <!-- Marriage Certificate -->
+  <div class="document-card">
+    <h3>Acte de mariage</h3>
+    
+    <div class="requirements">
+      <h4>Documents requis</h4>
+      <ul>
+        <li>Copie de la CIN des deux époux</li>
+        <li>Acte de naissance des deux époux</li>
+        <li>Certificat de résidence</li>
+      </ul>
+    </div>
+    
+    <div class="timing">
+      <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor;">
+        <path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"></path>
+      </svg>
+      Délai: 3-5 jours ouvrables
+    </div>
+    
+    <button class="request-btn">Faire une demande</button>
+  </div>
+
+  <!-- Residency Certificate -->
+  <div class="document-card">
+    <h3>Attestation de résidence</h3>
+    
+    <div class="requirements">
+      <h4>Documents requis</h4>
+      <ul>
+        <li>Copie de la CIN</li>
+        <li>Contrat de bail ou titre de propriété</li>
+        <li>Dernière facture d'électricité ou d'eau</li>
+        <li>Formulaire de demande rempli</li>
+      </ul>
+    </div>
+    
+    <div class="timing">
+      <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor;">
+        <path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"></path>
+      </svg>
+      Délai: 1-2 jours ouvrables
+    </div>
+    
+    <button class="request-btn">Faire une demande</button>
+  </div>
+
+  <!-- Work Certificate -->
+  <div class="document-card">
+    <h3>Attestation de travail</h3>
+    
+    <div class="requirements">
+      <h4>Documents requis</h4>
+      <ul>
+        <li>Copie de la CIN</li>
+        <li>Contrat de travail</li>
+        <li>Dernière fiche de paie</li>
+      </ul>
+    </div>
+    
+    <div class="timing">
+      <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor;">
+        <path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"></path>
+      </svg>
+      Délai: 1-2 jours ouvrables
+    </div>
+    
+    <button class="request-btn">Faire une demande</button>
+  </div>
+</div>
+  </div>
+</main>
+
+<script>
+// Add hover animations for cards and buttons
+document.addEventListener('DOMContentLoaded', () => {
+  const documentCards = document.querySelectorAll('.document-card');
+  documentCards.forEach(card => {
+    // Remove the service-cost element
+    const costElement = card.querySelector('.service-cost');
+    if (costElement) {
+      costElement.remove();
+    }
+    
+    // Add hover animation
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-5px)';
+      card.style.boxShadow = '0 8px 25px rgba(0,0,0,0.1)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+      card.style.boxShadow = '0 4px 15px rgba(0,0,0,0.05)';
+    });
+  });
+
+  // Sidebar link hover effects
+  const sidebarLinks = document.querySelectorAll('.sidebar-link');
+  sidebarLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      link.querySelector('svg').style.transform = 'scale(1.1) rotate(5deg)';
+    });
+    
+    link.addEventListener('mouseleave', () => {
+      link.querySelector('svg').style.transform = link.classList.contains('active') ? 'scale(1.1)' : 'scale(1)';
+    });
+  });
+
+  // Logout functionality
+  const logoutLink = document.querySelector('.sidebar-link.logout');
+  logoutLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+      // Add logout animation
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.href = '/logout';
+      }, 300);
+    }
+  });
+
+  // Add smooth scroll behavior
+  document.documentElement.style.scrollBehavior = 'smooth';
+});
+
+// Add transition effect when switching pages
+window.addEventListener('pagehide', () => {
+  document.body.style.opacity = '0';
+});
+
+window.addEventListener('pageshow', () => {
+  document.body.style.opacity = '1';
+});
+</script>
+
+</body></html>

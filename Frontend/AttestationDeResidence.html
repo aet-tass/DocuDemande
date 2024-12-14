@@ -1,0 +1,372 @@
+<html><head><base href="/">
+<title>Demande d'Attestation de Résidence - DocuDemande</title>
+<style>
+:root {
+    --primary: #006233;
+    --secondary: #c1272d;
+    --light: #f8f9fa;
+    --dark: #2d3748;
+    --gray: #718096;
+    --border: #e2e8f0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, rgba(0,98,51,0.05), rgba(193,39,45,0.05));
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.upload-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-header h1 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(0,98,51,0.03);
+    border-radius: 10px;
+    border: 1px solid rgba(0,98,51,0.1);
+}
+
+.form-section h2 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0,98,51,0.1);
+}
+
+.file-upload {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.file-upload:hover {
+    border-color: var(--primary);
+    background: rgba(0,98,51,0.02);
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    max-width: 180px;
+    margin: 0 auto;
+    display: block;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,98,51,0.15);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.progress-indicator {
+    height: 4px;
+    background: var(--light);
+    border-radius: 2px;
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width 0.3s ease;
+}
+
+.requirements-list {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.requirements-list h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.requirements-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.requirements-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.requirements-list li:before {
+    content: '✓';
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.submit-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.3) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <form class="upload-form" id="residenceCertificateForm">
+            <div class="form-header">
+                <h1>Demande d'Attestation de Résidence</h1>
+                <p>Veuillez remplir le formulaire ci-dessous pour obtenir votre attestation de résidence</p>
+            </div>
+
+            <div class="requirements-list">
+                <h3>Documents requis :</h3>
+                <ul>
+                    <li>Copie de la CIN</li>
+                    <li>Copie du contrat de bail ou titre de propriété</li>
+                    <li>Dernière facture d'électricité/eau</li>
+                </ul>
+            </div>
+
+            <div class="form-section">
+                <h2>Informations personnelles</h2>
+                <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nom</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="cin">Numéro CIN</label>
+                    <input type="text" id="cin" name="cin" required>
+                </div>
+                <div class="form-group">
+                    <label for="dateOfBirth">Date de naissance</label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Informations de résidence</h2>
+                <div class="form-group">
+                    <label for="address">Adresse complète</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">Ville</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="district">Quartier</label>
+                    <input type="text" id="district" name="district" required>
+                </div>
+                <div class="form-group">
+                    <label for="residenceType">Type de résidence</label>
+                    <select id="residenceType" name="residenceType" required>
+                        <option value="">Sélectionnez</option>
+                        <option value="owner">Propriétaire</option>
+                        <option value="tenant">Locataire</option>
+                        <option value="family">Hébergé par la famille</option>
+                        <option value="other">Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="residenceDuration">Durée de résidence</label>
+                    <input type="text" id="residenceDuration" name="residenceDuration" placeholder="Ex: 2 ans" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Motif de la demande</h2>
+                <div class="form-group">
+                    <label for="purpose">Objectif de l'attestation</label>
+                    <select id="purpose" name="purpose" required>
+                        <option value="">Sélectionnez</option>
+                        <option value="administrative">Démarche administrative</option>
+                        <option value="school">Inscription scolaire</option>
+                        <option value="bank">Ouverture de compte bancaire</option>
+                        <option value="other">Autre</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Documents à fournir</h2>
+                <div class="file-upload">
+                    <div class="upload-icon">📋</div>
+                    <p>Copie de la CIN</p>
+                    <input type="file" id="cinCopy" name="cinCopy" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+
+                <div class="file-upload">
+                    <div class="upload-icon">📄</div>
+                    <p>Copie du contrat de bail ou titre de propriété</p>
+                    <input type="file" id="propertyDoc" name="propertyDoc" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+
+                <div class="file-upload">
+                    <div class="upload-icon">📑</div>
+                    <p>Dernière facture d'électricité/eau</p>
+                    <input type="file" id="utilityBill" name="utilityBill" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+            </div>
+
+            <div class="progress-indicator">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Soumettre la demande
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('residenceCertificateForm');
+            const progressBar = document.getElementById('progressBar');
+            const fileUploads = document.querySelectorAll('.file-upload');
+
+            fileUploads.forEach(upload => {
+                const input = upload.querySelector('input[type="file"]');
+                input.addEventListener('change', function() {
+                    if (this.files.length > 0) {
+                        upload.style.borderColor = 'var(--primary)';
+                        upload.style.background = 'rgba(0,98,51,0.05)';
+                    } else {
+                        upload.style.borderColor = 'var(--border)';
+                        upload.style.background = 'transparent';
+                    }
+                });
+            });
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 5;
+                    progressBar.style.width = `${progress}%`;
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        alert('Votre demande a été soumise avec succès !');
+                        form.reset();
+                        progressBar.style.width = '0%';
+                        fileUploads.forEach(upload => {
+                            upload.style.borderColor = 'var(--border)';
+                            upload.style.background = 'transparent';
+                        });
+                    }
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
